@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div id="copyrights" class="flex justify-center items-center border-t-2 border-white basis-[10vh] text-sm sm:text-md">
+    <div id="copyrights" class="flex justify-center items-center border-t-2 border-white basis-[10vh] text-sm sm:text-xl">
       <p>© 2023 Fakultas Teknik Universitas Hasanuddin</p>
     </div>
   </footer>

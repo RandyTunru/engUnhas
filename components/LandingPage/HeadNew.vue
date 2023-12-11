@@ -36,7 +36,7 @@
                 <img loading="lazy" src="~/assets/images/dropdown.png" class="aspect-square object-cover object-center w-4 overflow-hidden self-center shrink-0 my-auto"/>
               </span>
               <div class="hidden absolute z-10 top-6 max-w-[25vw] dropdown-content">
-                <div class="py-2 px-5 bg-yellow overflow-hidden whitespace-nowrap" v-for="subnav in filterSubnav(nav.id)"> {{ subnav.name }}</div>
+                <div class="py-2 px-5 bg-yellow overflow-hidden whitespace-nowrap" v-for="subnav in filterSubnav(nav.id)"><a :href="subnav.link"><div>{{ subnav.name }}</div></a></div>
               </div>
             </div>
             <div v-else>
@@ -88,7 +88,7 @@
             filterSubnav(id){
               let filteredSubnav = this.Subnavbar.filter(subnav => subnav.navheader == id) 
               return filteredSubnav
-            }
+            },
         },
 
         data() {
@@ -99,3 +99,13 @@
         }
     }
 </script>
+
+<style>
+.dropdown-area:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content div:hover{
+  background-color: rgb(234,179,8);
+}
+</style>
