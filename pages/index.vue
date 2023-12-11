@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LandingPageHead/>
+    <LandingPageHeadNew/>
     <LandingPageGreet/>
     <LandingPageGallery/>
     <LandingPageDharmaWanita/>

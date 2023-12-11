@@ -30,17 +30,17 @@
       <div class="justify-center items-center content-center flex-wrap bg-yellow flex flex-col">
         <nav class="self-center flex w-full max-w-[80vw] items-start justify-between gap-5 my-6 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
           <div class="items-start self-stretch flex flex-col justify-between gap-1 relative inline-block dropdown-area" v-for ="nav in Navbar">
-            <div v-if="nav.haveSubNav">
+            <div v-if="nav.have_sub_nav">
               <span class="items-start self-stretch flex justify-between gap-1">
-                <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.nama }}</a>
+                <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.name }}</a>
                 <img loading="lazy" src="~/assets/images/dropdown.png" class="aspect-square object-cover object-center w-4 overflow-hidden self-center shrink-0 my-auto"/>
               </span>
               <div class="hidden absolute z-10 top-6 max-w-[25vw] dropdown-content">
-                <div class="py-2 px-5 bg-yellow overflow-hidden whitespace-nowrap" v-for="subnav in filterSubnav(nav.id)"> {{ subnav.nama }}</div>
+                <div class="py-2 px-5 bg-yellow overflow-hidden whitespace-nowrap" v-for="subnav in filterSubnav(nav.id)"> {{ subnav.name }}</div>
               </div>
             </div>
             <div v-else>
-              <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.nama }}</a>
+              <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.name }}</a>
             </div>
           </div>
         </nav>
@@ -62,7 +62,7 @@
 
         methods: {
             fetchNavbar() {
-                const res = fetch('http://localhost:8055/items/navbar')
+                const res = fetch('http://localhost:8055/items/navigation')
                 .then (res => res.json())
                 .then (res => {
                     console.log(res.data)
@@ -74,7 +74,7 @@
             },
 
             fetchSubnavbar() {
-                const res = fetch('http://localhost:8055/items/subnavbar')
+                const res = fetch('http://localhost:8055/items/navigation_items')
                 .then (res => res.json())
                 .then (res => {
                     console.log(res.data)
