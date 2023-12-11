@@ -50,7 +50,7 @@
             </div>
             <div class="items-start self-stretch flex flex-col justify-between gap-1 relative inline-block dropdown-area">
                 <span class="items-start self-stretch flex justify-between gap-1">
-                  <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">Akademik</a>
+                  <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">Akademi</a>
                   <img loading="lazy" src="~/assets/images/dropdown.png" class="aspect-square object-cover object-center w-4 overflow-hidden self-center shrink-0 my-auto" />
                 </span>
                 <div class="hidden absolute z-10 top-6 max-w-[25vw] dropdown-content">
