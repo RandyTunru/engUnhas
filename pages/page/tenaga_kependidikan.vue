@@ -1,7 +1,24 @@
 <template>
     <div>
         <LandingPageHeadNew/>
-        <div v-html="Data[0]?.kontenNewVer" class="mx-[10vw] my-[3vh]" id="modular">
+        <div class="mx-[10vw] my-[3vh]" id="modular">
+            <h3 class="mb-[1vh]">Guru Besar</h3>
+            <table class="text-center">
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Jabatan</th>
+                    <th>NIP</th>
+                    <th>Golongan Darah</th>
+                </tr>
+                <tr v-for="(item, index) in Data" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ item.nama }}</td>
+                    <td>{{ item.jabatan }}</td>
+                    <td>{{ item.nip }}</td>
+                    <td>{{ item.golongan }}</td>
+                </tr>
+            </table>
         </div>
         <LandingPageFooter/>
     </div>
@@ -20,7 +37,7 @@
 
         methods: {
             fetchData() {
-                const res = fetch('http://localhost:8055/items/' + this.$route.params.pathname)
+                const res = fetch('http://localhost:8055/items/tenaga_kependidikan')
                 .then (res => res.json())
                 .then (res => {
                     console.log(res.data)
@@ -91,11 +108,6 @@
         vertical-align: inherit;
         border-color: inherit;
         padding: 1vh 1vw;
-    }
-
-    :deep(.img-sarana){
-        display: flex;
-        flex-direction: row;
     }
 </style>
 
