@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-blue flex flex-col mt-10 text-white h-[70vh] justify-center">
-    <div id="final" class="flex flex-row my-4 justify-around py-10">
-      <div id="footer-with-logo" class="w-[40vw]">
+  <footer class="bg-blue flex flex-col mt-10 text-white justify-center">
+    <div id="final" class="flex flex-col my-4 items-center justify-center py-10 gap-12 sm:flex-row">
+      <div id="footer-with-logo" class="w-[70vw] sm:w-[40vw]">
         <img src="@/assets/images/logo.png" alt="Logo" class="">
         <p class="my-4">Jalan Poros Malino Km. 6, Bontomarannu. Gowa, Sulawesi Selatan. 92171</p>
         <p>+(62) 852-9999-9958</p>
@@ -12,7 +12,7 @@
           <img src="@/assets/images/instagram.png" alt="Instagram">
         </div>
       </div>
-      <div id="list-departemen" class="w-[40vw]">
+      <div id="list-departemen" class="w-[70vw] sm:w-[40vw]">
           <h1 class="text-xl"><b>Departemen & Program Studi</b></h1>
           <div id="departemen-program-studi" class="flex flex-row justify-between gap-5 mt-2 text-sm">
           <ul class="flex flex-col justify-between gap-3">
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div id="copyrights" class="flex justify-center items-center border-t-2 border-white basis-[10vh]">
+    <div id="copyrights" class="flex justify-center items-center border-t-2 border-white basis-[10vh] text-sm sm:text-md">
       <p>© 2023 Fakultas Teknik Universitas Hasanuddin</p>
     </div>
   </footer>

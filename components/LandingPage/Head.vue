@@ -168,3 +168,49 @@
     </div>
 </template>
           
+<script>
+    export default {
+        name: 'Berita',
+        props: {
+            
+        },
+
+        mounted() {
+            this.fetchNavbar()
+            this.fetchSubnavbar()
+        },
+
+        methods: {
+            fetchNavbar() {
+                const res = fetch('http://localhost:8055/items/navbar')
+                .then (res => res.json())
+                .then (res => {
+                    console.log(res.data)
+                    return this.Navbar = res.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            },
+
+            fetchSubnavbar() {
+                const res = fetch('http://localhost:8055/items/subnavbar')
+                .then (res => res.json())
+                .then (res => {
+                    console.log(res.data)
+                    return this.Subnavbar = res.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            }
+        },
+
+        data() {
+            return {
+                Navbar: [],
+                Subnavbar: []
+            }
+        }
+    }
+</script>

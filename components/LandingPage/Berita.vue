@@ -15,7 +15,7 @@
                     <div class="flex flex-col items-stretch w-full">
                     <img loading="lazy" src="@/assets/images/berita-1.png" class="aspect-[1.7] object-fit-cover object-center max-w-[580] overflow-hidden max-w-full" />
                     <h3 class="text-black text-justify text-l font-bold py-4">
-                        <a href="#">Kedatangan Profesor Dari Jepang, Departemen Teknik Industri Fakultas Teknik Universitas Hasanuddin Laksanakan International Guest Lecturer</a>
+                        <a href="#"><!-- {{ Team[0]?.bio }} -->Filler</a>
                     </h3>
                     <p class="line-clamp-2 text-justify text-black">
                         Departemen Teknik Industri Fakultas Teknik Universitas Hasanuddin menggelar
@@ -31,7 +31,7 @@
                     <div class="flex flex-col items-stretch w-full">
                     <img loading="lazy" src="@/assets/images/berita-2.png" class="aspect-[1.7] object-fit-cover object-center max-w-[580] overflow-hidden max-w-full" />
                     <h3 class="text-black text-justify text-l font-bold py-4">
-                        <a href="#">Fakultas Teknik Universitas Hasanuddin Mengembangkan Jejaring Kerjasama dengan Fakultas Teknik Universitas Siliwangi, Tasikmalaya.</a>
+                        <a href="#"><!-- {{ Team[0]?.bio }} -->Filler</a>
                     </h3>
                     <p class="line-clamp-2 text-justify text-black">
                         Fakultas Teknik Universitas Hasanuddin dan Fakultas Teknik Universitas
@@ -50,3 +50,51 @@
     </div>
     </div>
 </template>
+
+<script>
+    export default {
+        name: 'Berita',
+        props: {
+            
+        },
+
+        mounted() {
+            this.fetchTeam()
+            this.fetchPages()
+        },
+
+        methods: {
+            fetchTeam() {
+                const res = fetch('http://localhost:8055/items/team')
+                .then (res => res.json())
+                .then (res => {
+                    console.log(res.data)
+                    return this.Team = res.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            },
+
+            fetchPages() {
+                const res = fetch('http://localhost:8055/items/pages')
+                .then (res => res.json())
+                .then (res => {
+                    console.log(res.data)
+                    return this.Pages = res.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            }
+        },
+
+        data() {
+            return {
+                Team: [],
+                Pages: []
+            }
+        }
+    }
+</script>
+
