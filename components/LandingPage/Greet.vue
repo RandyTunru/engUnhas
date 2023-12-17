@@ -5,7 +5,7 @@
         <section class="mt-9 max-md:max-w-full">
             <div class="gap-5 flex flex-col md:flex-row items-stretch">
                 <div class="w-full md:w-[38%] mr-5 md:mr-0">
-                    <img loading="lazy" src="http://localhost:8055/assets/7bc35b82-082b-4a46-b154-96e31e1dcc2c?&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1MGZlNGI1LTdmOTctNDk2Zi05YzY5LTQzMjg2NDQyMjA3MCIsInJvbGUiOiJkM2YyZTY2OS1lYjI4LTQ1NzItYmU4Zi1jMTVhNTJjODJjOGYiLCJhcHBfYWNjZXNzIjoxLCJhZG1pbl9hY2Nlc3MiOjEsImlhdCI6MTcwMjI4OTMyMCwiZXhwIjoxNzAyMjkwMjIwLCJpc3MiOiJkaXJlY3R1cyJ9.lTliQP374kIyv2fAKv9gmweZqdxSubbDHzxEhd1LbXo" class="bottom-0">
+                    <img loading="lazy" :src="'http://localhost:8055/assets/' + Greet[0]?.image" class="bottom-0">
                 </div>
                 <div class="w-full md:w-[62%]">
                     <div class="relative flex flex-col my-auto">

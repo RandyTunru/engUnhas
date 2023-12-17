@@ -15,7 +15,7 @@
                     <div class="flex flex-col items-stretch w-full">
                     <img loading="lazy" src="@/assets/images/berita-1.png" class="aspect-[1.7] object-fit-cover object-center max-w-[580] overflow-hidden max-w-full" />
                     <h3 class="text-black text-justify text-l font-bold py-4">
-                        <a href="#">{{ berita?.judul }}Filler</a>
+                        <a href="#">{{ berita?.judul }}</a>
                     </h3>
                     <p class="line-clamp-2 text-justify text-black">
                         {{ berita?.konten }}
