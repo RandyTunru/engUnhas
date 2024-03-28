@@ -29,18 +29,18 @@
       </div>
       <div class="justify-center items-center content-center flex-wrap bg-yellow flex flex-col">
         <nav class="self-center flex w-full max-w-[80vw] items-start justify-between gap-5 my-6 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-          <div class="items-start self-stretch flex flex-col justify-between gap-1 relative inline-block dropdown-area" v-for ="nav in Navbar">
-            <div v-if="nav.haveSubNav">
+          <div class="items-start self-stretch flex flex-col justify-between gap-1 relative inline-block dropdown-area" v-for ="(nav, index) in Navbar">
+            <div v-if="nav.have_sub_nav">
               <span class="items-start self-stretch flex justify-between gap-1">
-                <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.nama }}</a>
+                <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.name }}</a>
                 <img loading="lazy" src="~/assets/images/dropdown.png" class="aspect-square object-cover object-center w-4 overflow-hidden self-center shrink-0 my-auto"/>
               </span>
-              <div class="hidden absolute z-10 top-6 max-w-[25vw] dropdown-content">
-                <div class="py-2 px-5 bg-yellow overflow-hidden whitespace-nowrap" v-for="subnav in filterSubnav(nav.id)"> {{ subnav.nama }}</div>
+              <div class="hidden absolute z-10 top-6 max-w-[40vw] dropdown-content text-xs sm:max-w-[25vw] sm:text-base">
+                <div class="py-2 px-5 bg-yellow overflow-hidden whitespace-nowrap" v-for="subnav in filterSubnav(nav.id)"><a :href="subnav.link"><div>{{ subnav.name }}</div></a></div>
               </div>
             </div>
             <div v-else>
-              <a href="#" class="text-blue text-justify text-sm font-bold self-stretch">{{ nav.nama }}</a>
+              <a class="text-blue text-justify text-sm font-bold self-stretch" :href="nav.link">{{ nav.name }}</a>
             </div>
           </div>
         </nav>
@@ -62,11 +62,21 @@
 
         methods: {
             fetchNavbar() {
-                const res = fetch('http://localhost:8055/items/navbar')
+                const res = fetch('http://localhost:8055/items/navigation')
                 .then (res => res.json())
                 .then (res => {
                     console.log(res.data)
-                    return this.Navbar = res.data
+                    const retData = res.data
+                    retData.sort(function(a, b) {
+                        // Convert boolean values to numbers (true becomes 1, false becomes 0)
+                        var aValue = a.have_sub_nav ? 1 : 0;
+                        var bValue = b.have_sub_nav ? 1 : 0;
+
+                        // Compare the numeric values
+                        return aValue - bValue;
+                        });
+                    console.log(retData)
+                    return this.Navbar = retData
                 })
                 .catch(err => {
                     console.log(err)
@@ -74,7 +84,7 @@
             },
 
             fetchSubnavbar() {
-                const res = fetch('http://localhost:8055/items/subnavbar')
+                const res = fetch('http://localhost:8055/items/navigation_items')
                 .then (res => res.json())
                 .then (res => {
                     console.log(res.data)
@@ -88,7 +98,7 @@
             filterSubnav(id){
               let filteredSubnav = this.Subnavbar.filter(subnav => subnav.navheader == id) 
               return filteredSubnav
-            }
+            },
         },
 
         data() {
@@ -99,3 +109,13 @@
         }
     }
 </script>
+
+<style>
+.dropdown-area:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content div:hover{
+  background-color: rgb(234,179,8);
+}
+</style>
